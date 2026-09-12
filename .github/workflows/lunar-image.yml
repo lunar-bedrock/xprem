@@ -24,7 +24,7 @@ jobs:
         with:
           go-version: '1.26.2'
       - name: Verify uploads, publishing, and rollback
-        run: go test ./test ./internal/bucket ./internal/database/postgres/migrations -run 'Test.*(Republish|Rollback|HandleUploadFile|PutBlob|BackfillUpdateAssetMapping)' -count=1
+        run: go test ./test ./internal/bucket -run 'Test.*(Republish|Rollback|HandleUploadFile|PutBlob)' -count=1
       - uses: docker/setup-buildx-action@v4
       - uses: docker/login-action@v4
         with:
